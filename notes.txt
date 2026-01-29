@@ -1,0 +1,4 @@
+data:
+    an attribute use to attach any information to an element like we attached product name to addtocart button
+dataset gives all the values that are attached to element
+to access product name we write dataset.productName 
