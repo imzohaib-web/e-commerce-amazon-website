@@ -1,8 +1,9 @@
 import { cart, removeFromCart, updateDeliveryOption } from '../../data/cart.js';
-import { products } from '../../data/products.js';
+import { products, getProduct } from '../../data/products.js';
 import { formatCurrency } from '../utils/money.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
-import { deliveryOptions } from '../../data/deliveryOptions.js';
+import { deliveryOptions,getDeliveryOption } from '../../data/deliveryOptions.js';
+import { renderPaymentSummary } from './paymentSummary.js';
 
 
 export function renderOrderSummary() {
@@ -11,24 +12,16 @@ export function renderOrderSummary() {
     cart.forEach((cartItem) => {
         let productId = cartItem.productId;
 
-        let matchingProduct;
-        products.forEach((product) => {
-            if (product.id === productId) {
-                matchingProduct = product;
-            }
-        });
+        const matchingProduct = getProduct(productId)
 
         if (!matchingProduct) {
             return; // skip this cart item if product not found
         }
 
         const deliveryOptionId = cartItem.deliveryOptionId;
-        let deliveryOption;
-        deliveryOptions.forEach((option) => {
-            if (option.id === deliveryOptionId) {
-                deliveryOption = option;
-            }
-        });
+
+        let deliveryOption = getDeliveryOption(deliveryOptionId);
+        
 
         if (!deliveryOption) {
             deliveryOption = deliveryOptions[0];
@@ -130,6 +123,7 @@ export function renderOrderSummary() {
                 if (deleteProduct) {
                     deleteProduct.remove();
                 }
+                renderPaymentSummary();
             });
         });
 
@@ -140,11 +134,10 @@ export function renderOrderSummary() {
                 if (!productId || !deliveryOptionId) return;
                 updateDeliveryOption(productId, deliveryOptionId);
                 renderOrderSummary();
+                renderPaymentSummary();
             })
         });
 
 
 
 }
-
-renderOrderSummary();
