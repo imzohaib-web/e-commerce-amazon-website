@@ -154,3 +154,113 @@
   padding: 8px;
   border-radius: 50px;
 }
+
+/* Match highlight styling */
+mark {
+  background-color: #ffe0b2;
+  color: #333;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* Search results sub-header */
+.search-results-header {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 20px 25px;
+  color: #111;
+}
+
+.search-results-header.hidden {
+  display: none;
+}
+
+/* Loading animation container */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+  width: 100%;
+}
+
+.loading-container.hidden {
+  display: none;
+}
+
+.loading-spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #febd69;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Empty search result container */
+.no-products-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.no-products-container.hidden {
+  display: none;
+}
+
+.no-products-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: #ccc;
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+
+.no-products-container h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.no-products-container p {
+  font-size: 15px;
+  margin-bottom: 25px;
+  color: #565959;
+}
+
+.clear-search-btn {
+  background-color: #ffd814;
+  border: 1px solid #fcd200;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213,217,217,.5);
+  transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+.clear-search-btn:hover {
+  background-color: #f7ca00;
+  border-color: #f2c200;
+}
+
+.clear-search-btn:active {
+  transform: scale(0.98);
+}

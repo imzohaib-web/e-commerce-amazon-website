@@ -30,9 +30,13 @@
       </div>
 
       <div class="amazon-header-middle-section">
-        <input class="search-bar" type="text" placeholder="Search">
+        <div class="search-input-container">
+          <input class="search-bar js-search-bar" type="text" placeholder="Search">
+          <button class="clear-search-button js-clear-search-button hidden" aria-label="Clear Search">&times;</button>
+          <div class="search-dropdown js-search-dropdown hidden"></div>
+        </div>
 
-        <button class="search-button">
+        <button class="search-button js-search-button">
           <img class="search-icon" src="images/icons/search-icon.png">
         </button>
       </div>
@@ -52,6 +56,19 @@
     </div>
     
     <div class="main">
+      <div class="search-results-header js-search-results-header hidden"></div>
+
+      <div class="loading-container js-loading-container hidden">
+        <div class="loading-spinner"></div>
+      </div>
+
+      <div class="no-products-container js-no-products-container hidden">
+        <div class="no-products-icon">&#x1F50D;</div>
+        <h2>No products match your search.</h2>
+        <p>Check the spelling or try another search term.</p>
+        <button class="clear-search-btn js-clear-search-btn">Clear Search</button>
+      </div>
+
       <div class="products-grid js-products-grid">
   
 
