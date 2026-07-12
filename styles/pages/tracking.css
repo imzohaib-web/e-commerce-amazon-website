@@ -1,81 +1,121 @@
-.main {
-  max-width: 850px;
-  margin-top: 90px;
-  margin-bottom: 100px;
-  padding-left: 30px;
-  padding-right: 30px;
+body {
+  font-family: 'Roboto', 'Outfit', sans-serif;
+  background-color: #f7f9fa;
+  margin: 0;
+  color: #333;
+}
 
-  /* margin-left: auto;
-     margin-right auto;
-     Is a trick for centering an element horizontally
-     without needing a container. */
+.main {
+  max-width: 750px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 130px; /* offset for sticky navbar + sub-navbar */
+  margin-bottom: 100px;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
 }
 
 .back-to-orders-link {
+  font-family: 'Outfit', sans-serif;
   display: inline-block;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
+  color: #007185;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.back-to-orders-link:hover {
+  color: #c7511f;
+  text-decoration: underline;
+}
+
+.order-tracking {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
 }
 
 .delivery-date {
-  font-size: 25px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 24px;
   font-weight: 700;
-  margin-bottom: 10px;
+  color: #007600;
+  margin-bottom: 12px;
 }
 
-.product-info {
-  margin-bottom: 3px;
+.product-info-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.product-info-qty {
+  font-size: 14px;
+  color: #565959;
+  margin-bottom: 20px;
+}
+
+.product-image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  overflow: hidden;
 }
 
 .product-image {
-  max-width: 150px;
-  max-height: 150px;
-  margin-top: 25px;
-  margin-bottom: 50px;
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
 }
 
 .progress-labels-container {
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #888;
+}
+
+.progress-label.completed {
+  color: #111;
 }
 
 .current-status {
-  color: rgb(6, 125, 98);
+  color: #067d62; /* warm e-commerce green */
+  font-weight: 700;
 }
 
-@media (max-width: 575px) {
-  .progress-labels-container {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   .progress-labels-container {
     flex-direction: column;
-    margin-bottom: 5px;
-  }
-
-  .progress-label {
-    margin-bottom: 3px;
+    gap: 8px;
+    align-items: center;
   }
 }
 
 .progress-bar-container {
-  height: 25px;
+  height: 18px;
   width: 100%;
-
-  border: 1px solid rgb(200, 200, 200);
+  border: 1px solid #e2e8f0;
   border-radius: 50px;
   overflow: hidden;
+  background-color: #f1f5f9;
 }
 
 .progress-bar {
   height: 100%;
-  background-color: green;
+  background-color: #067d62;
   border-radius: 50px;
-  width: 50%;
+  transition: width 0.5s ease;
 }

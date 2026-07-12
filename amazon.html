@@ -14,10 +14,11 @@
     <!-- Here are the CSS files for this page. -->
     <link rel="stylesheet" href="styles/shared/general.css">
     <link rel="stylesheet" href="styles/shared/amazon-header.css">
+    <link rel="stylesheet" href="styles/shared/footer.css">
     <link rel="stylesheet" href="styles/pages/amazon.css">
   </head>
   <body>
-    <div class="amazon-header">
+    <header class="amazon-header">
       <div class="amazon-header-left-section">
         <a href="amazon.html" class="header-logo-link">
           <span class="logo-icon">🛍️</span>
@@ -35,15 +36,18 @@
           <option value="home">Home</option>
           <option value="accessories">Accessories</option>
         </select>
-        <div class="search-input-container">
-          <input class="search-bar js-search-bar" type="text" placeholder="Search products, keywords or category...">
-          <button class="clear-search-button js-clear-search-button hidden" aria-label="Clear Search">&times;</button>
-          <div class="search-dropdown js-search-dropdown hidden"></div>
-        </div>
 
-        <button class="search-button js-search-button" aria-label="Submit Search">
-          <img class="search-icon" src="images/icons/search-icon.png" alt="Search">
-        </button>
+        <div class="search-group">
+          <div class="search-input-container">
+            <input class="search-bar js-search-bar" type="text" placeholder="Search products, keywords or category...">
+            <button class="clear-search-button js-clear-search-button hidden" aria-label="Clear Search">&times;</button>
+            <div class="search-dropdown js-search-dropdown hidden"></div>
+          </div>
+
+          <button class="search-button js-search-button" aria-label="Submit Search">
+            <img class="search-icon" src="images/icons/search-icon.png" alt="Search">
+          </button>
+        </div>
       </div>
 
       <div class="amazon-header-right-section">
@@ -60,13 +64,12 @@
           <div class="cart-text">Cart</div>
         </a>
       </div>
-    </div>
+    </header>
 
-    <!-- Secondary Sub-Navbar Navigation -->
-    <div class="sub-navbar">
+    <nav class="sub-navbar">
       <div class="sub-nav-links">
         <a href="amazon.html" class="sub-nav-link active">Home</a>
-        <a href="#categories-section" class="sub-nav-link">Categories</a>
+        <a href="#products-section" class="sub-nav-link">Categories</a>
         <a href="#products-section" class="sub-nav-link">Deals</a>
         <a href="#products-section" class="sub-nav-link">New Arrivals</a>
         <a href="#footer-section" class="sub-nav-link">Contact</a>
@@ -74,11 +77,10 @@
       <div class="sub-nav-promo">
         ⚡ Limited Time Deals: Get Up to 50% Off!
       </div>
-    </div>
-    
-    <div class="main">
-      <!-- Hero Promotional Slide Banner Section -->
-      <div class="hero-section" id="deals-section">
+    </nav>
+
+    <main class="main">
+      <section class="hero-section" id="deals-section">
         <div class="hero-slides">
           <div class="hero-slide" style="background-image: linear-gradient(to right, rgba(19, 25, 33, 0.85), rgba(19, 25, 33, 0.45)), url('images/hero-bg.png');">
             <div class="hero-content">
@@ -89,47 +91,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Categories Section below Hero -->
-      <div class="categories-section" id="categories-section">
-        <h2 class="section-title">Shop by Category</h2>
-        <div class="category-grid">
-          <div class="category-card js-category-card" data-category="clothing">
-            <span class="category-emoji">👕</span>
-            <h3>Fashion</h3>
-            <p>Apparel & Shoes</p>
-          </div>
-          <div class="category-card js-category-card" data-category="electronics">
-            <span class="category-emoji">💻</span>
-            <h3>Electronics</h3>
-            <p>Gadgets & Tech</p>
-          </div>
-          <div class="category-card js-category-card" data-category="home">
-            <span class="category-emoji">🏠</span>
-            <h3>Home</h3>
-            <p>Decor & Comfort</p>
-          </div>
-          <div class="category-card js-category-card" data-category="kitchen">
-            <span class="category-emoji">🍳</span>
-            <h3>Kitchen</h3>
-            <p>Appliances & Plates</p>
-          </div>
-          <div class="category-card js-category-card" data-category="sports">
-            <span class="category-emoji">🏀</span>
-            <h3>Sports</h3>
-            <p>Fitness & Gear</p>
-          </div>
-          <div class="category-card js-category-card" data-category="accessories">
-            <span class="category-emoji">👜</span>
-            <h3>Accessories</h3>
-            <p>Bags & Shades</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Products Grid & Filtering Section -->
-      <div class="products-section" id="products-section">
+      <section class="products-section" id="products-section">
         <h2 class="section-title js-products-section-title">Explore Our Products</h2>
         
         <div class="filter-sort-bar">
@@ -188,8 +152,8 @@
         <div class="products-grid js-products-grid">
           <!-- Filled dynamically via JS -->
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   
     <!-- Quick View Modal Popup -->
     <div class="quickview-modal js-quickview-modal hidden">

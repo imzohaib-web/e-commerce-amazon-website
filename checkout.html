@@ -1,59 +1,187 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Checkout</title>
+    <title>SwiftCart - Secure Checkout</title>
 
-    <!-- This code is needed for responsive design to work.
-      (Responsive design = make the website look good on
-      smaller screen sizes like a phone or a tablet). -->
+    <!-- This code is needed for responsive design to work. -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Load a font called Roboto from Google Fonts. -->
+    <!-- Load a font called Roboto and Outfit from Google Fonts. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Here are the CSS files for this page. -->
     <link rel="stylesheet" href="styles/shared/general.css">
-    <link rel="stylesheet" href="styles/pages/checkout/checkout-header.css">
+    <link rel="stylesheet" href="styles/shared/amazon-header.css">
+    <link rel="stylesheet" href="styles/shared/footer.css">
     <link rel="stylesheet" href="styles/pages/checkout/checkout.css">
   </head>
   <body>
-    <div class="checkout-header">
-      <div class="header-content">
-        <div class="checkout-header-left-section">
-          <a href="amazon.html">
-            <img class="amazon-logo" src="images/amazon-logo.png">
-            <img class="amazon-mobile-logo" src="images/amazon-mobile-logo.png">
-          </a>
-        </div>
+    <header class="amazon-header">
+      <div class="amazon-header-left-section">
+        <a href="amazon.html" class="header-logo-link">
+          <span class="logo-icon">🛍️</span>
+          <span class="logo-text">SwiftCart</span>
+        </a>
+      </div>
 
-        <div class="checkout-header-middle-section">
-          Checkout (<a class="return-to-home-link"
-            href="amazon.html">3 items</a>)
-        </div>
+      <div class="amazon-header-middle-section">
+        <select class="nav-category-select js-nav-category-select" aria-label="Category select">
+          <option value="all">All</option>
+          <option value="clothing">Clothing</option>
+          <option value="electronics">Electronics</option>
+          <option value="kitchen">Kitchen</option>
+          <option value="sports">Sports</option>
+          <option value="home">Home</option>
+          <option value="accessories">Accessories</option>
+        </select>
 
-        <div class="checkout-header-right-section">
-          <img src="images/icons/checkout-lock-icon.png">
+        <div class="search-group">
+          <div class="search-input-container">
+            <input class="search-bar js-search-bar" type="text" placeholder="Search products, keywords or category...">
+            <button class="clear-search-button js-clear-search-button hidden" aria-label="Clear Search">&times;</button>
+            <div class="search-dropdown js-search-dropdown hidden"></div>
+          </div>
+
+          <button class="search-button js-search-button" aria-label="Submit Search">
+            <img class="search-icon" src="images/icons/search-icon.png" alt="Search">
+          </button>
         </div>
       </div>
-    </div>
 
-    <div class="main">
-      <div class="page-title">Review your order</div>
+      <div class="amazon-header-right-section">
+        <a class="orders-link header-link" href="orders.html">
+          <span class="returns-text">Returns</span>
+          <span class="orders-text">& Orders</span>
+        </a>
+
+        <a class="cart-link header-link" href="checkout.html">
+          <div class="cart-icon-container">
+            <img class="cart-icon" src="images/icons/cart-icon.png" alt="Cart">
+            <div class="cart-quantity js-cart-quantity">0</div>
+          </div>
+          <div class="cart-text">Cart</div>
+        </a>
+      </div>
+    </header>
+
+    <nav class="sub-navbar">
+      <div class="sub-nav-links">
+        <a href="amazon.html" class="sub-nav-link">Home</a>
+        <a href="amazon.html#products-section" class="sub-nav-link">Categories</a>
+        <a href="amazon.html#products-section" class="sub-nav-link">Deals</a>
+        <a href="amazon.html#products-section" class="sub-nav-link">New Arrivals</a>
+        <a href="#footer-section" class="sub-nav-link">Contact</a>
+      </div>
+      <div class="sub-nav-promo">
+        🔒 256-bit Secure Checkout Encryption Active
+      </div>
+    </nav>
+
+    <main class="main">
+      <div class="page-title">Review your Order</div>
 
       <div class="checkout-grid">
-        <div class="order-summary js-order-summary">
-         
+        <div class="checkout-left-column">
+          <!-- Cart Items Card List -->
+          <div class="order-summary js-order-summary">
+            <!-- Dynamically populated via JS -->
+          </div>
+          
+          <!-- Shipping Information Card -->
+          <div class="checkout-card shipping-info-card">
+            <h3>Shipping Information</h3>
+            <div class="shipping-info-form">
+              <div class="form-row">
+                <input type="text" placeholder="Full Name" value="Jane Doe" aria-label="Full Name" required>
+                <input type="text" placeholder="Phone Number" value="+1 (555) 019-2834" aria-label="Phone Number" required>
+              </div>
+              <input type="text" placeholder="Address Line 1" value="123 Shopping Blvd, Suite 100" aria-label="Address" required>
+              <div class="form-row">
+                <input type="text" placeholder="City" value="New York" aria-label="City" required>
+                <input type="text" placeholder="State" value="NY" aria-label="State" required>
+                <input type="text" placeholder="ZIP Code" value="10001" aria-label="ZIP Code" required>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="payment-summary js-payment-summary">
+        <div class="checkout-right-column">
+          <!-- Coupon Section -->
+          <div class="checkout-card coupon-card">
+            <h3>Promo Code / Coupon</h3>
+            <div class="coupon-input-group">
+              <input type="text" placeholder="Enter code (e.g. SWIFT50)" id="coupon-input" aria-label="Promo Code">
+              <button class="apply-coupon-btn" onclick="alert('Promo code applied successfully!')">Apply</button>
+            </div>
+          </div>
+
+          <!-- Payment Summary Card -->
+          <div class="payment-summary js-payment-summary">
+            <!-- Dynamically populated via JS -->
+          </div>
           
+          <!-- Action Buttons -->
+          <a href="amazon.html" class="continue-shopping-btn">Continue Shopping</a>
         </div>
       </div>
-    </div>
-    <!-- dayjs external library -->
-    
+    </main>
+
+    <!-- Professional E-Commerce Footer -->
+    <footer class="footer-section" id="footer-section">
+      <div class="back-to-top-footer js-back-to-top-footer">
+        Back to top
+      </div>
+      
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>About Us</h3>
+          <p>SwiftCart is a premium modern shopping destination, delivering high quality products right to your doorstep. Fast, secure, and hassle-free.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon" aria-label="Facebook">🔵</a>
+            <a href="#" class="social-icon" aria-label="YouTube">🔴</a>
+            <a href="#" class="social-icon" aria-label="Instagram">📸</a>
+            <a href="#" class="social-icon" aria-label="Twitter">🐦</a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Customer Service</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Track Orders</a></li>
+            <li><a href="#">Returns & Refunds</a></li>
+            <li><a href="#">Shipping Rates</a></li>
+            <li><a href="#">Contact Support</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Privacy & Legal</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Preferences</a></li>
+            <li><a href="#">Ad Choices</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Newsletter</h3>
+          <p>Subscribe to receive news, special deals, and updates from SwiftCart.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+            <input type="email" placeholder="Your email address" aria-label="Email Address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-copyright">
+        &copy; 2026 SwiftCart Inc. All rights reserved.
+      </div>
+    </footer>
+
     <script type="module" src="scripts/checkout.js"></script>
   </body>
 </html>

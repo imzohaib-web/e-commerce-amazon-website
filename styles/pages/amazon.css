@@ -101,11 +101,10 @@ body {
 }
 
 /* ==========================================================================
-   Categories Section
+   Filter & Sorting Bar
    ========================================================================== */
-.categories-section {
+.products-section {
   padding: 0 30px;
-  margin-bottom: 50px;
 }
 
 .section-title {
@@ -127,67 +126,6 @@ body {
   height: 3px;
   background-color: #ff9900;
   border-radius: 2px;
-}
-
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
-}
-
-.category-card {
-  background: white;
-  border-radius: 12px;
-  padding: 25px 15px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease;
-  border: 1px solid #f0f0f0;
-}
-
-.category-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  border-color: #febd69;
-}
-
-.category-card.active {
-  border: 2px solid #ff9900;
-  background-color: #fffaf0;
-}
-
-.category-emoji {
-  font-size: 36px;
-  display: block;
-  margin-bottom: 12px;
-}
-
-.category-card h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 0 0 5px 0;
-  color: #111;
-}
-
-.category-card p {
-  font-size: 12px;
-  color: #888;
-  margin: 0;
-}
-
-@media (max-width: 1000px) {
-  .category-grid { grid-template-columns: repeat(3, 1fr); }
-}
-@media (max-width: 550px) {
-  .category-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* ==========================================================================
-   Filter & Sorting Bar
-   ========================================================================== */
-.products-section {
-  padding: 0 30px;
 }
 
 .filter-sort-bar {
@@ -840,131 +778,54 @@ mark {
   background-color: #f7ca00;
 }
 
-/* ==========================================================================
-   Professional Footer
-   ========================================================================== */
-.footer-section {
-  background-color: #232f3e;
-  color: #eaeded;
-  margin-top: 80px;
+.product-image.image-error {
+  background-color: #f0f0f0;
+  object-fit: contain;
+  min-height: 180px;
 }
 
-.back-to-top-footer {
-  background-color: #37475a;
-  text-align: center;
-  padding: 15px 0;
+.qv-rating {
+  margin-bottom: 15px;
+}
+
+.qv-rating-count {
+  margin-top: 2px;
   font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s;
 }
 
-.back-to-top-footer:hover {
-  background-color: #485769;
+.qv-price {
+  margin-bottom: 15px;
 }
 
-.footer-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 50px 30px;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
-  gap: 40px;
+.qv-price .product-price {
+  font-size: 22px;
 }
 
-@media (max-width: 850px) {
-  .footer-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 500px) {
-  .footer-grid { grid-template-columns: 1fr; }
+.qv-price .original-price {
+  font-size: 15px;
 }
 
-.footer-column h3 {
-  font-size: 16px;
-  font-weight: 700;
-  color: white;
-  margin: 0 0 20px 0;
-}
-
-.footer-column p {
-  font-size: 13px;
-  line-height: 1.6;
-  color: #ccc;
-}
-
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-column ul li {
-  margin-bottom: 12px;
-}
-
-.footer-column ul li a {
-  color: #ccc;
-  text-decoration: none;
-  font-size: 13px;
-  transition: color 0.2s;
-}
-
-.footer-column ul li a:hover {
-  color: #febd69;
-  text-decoration: underline;
-}
-
-.footer-socials {
-  display: flex;
-  gap: 12px;
+.qv-actions {
   margin-top: 15px;
-}
-
-.social-icon {
-  font-size: 20px;
-  text-decoration: none;
-  transition: transform 0.2s;
-}
-
-.social-icon:hover {
-  transform: scale(1.15);
-}
-
-.newsletter-form {
   display: flex;
-  gap: 10px;
-  margin-top: 15px;
+  align-items: center;
+  gap: 15px;
 }
 
-.newsletter-form input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  font-size: 13px;
-  outline: none;
-}
-
-.newsletter-form button {
-  background-color: #ffd814;
-  border: none;
-  border-radius: 6px;
-  padding: 10px 15px;
-  font-size: 13px;
+.qv-quantity-label {
+  font-size: 14px;
   font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  margin-right: 8px;
 }
 
-.newsletter-form button:hover {
-  background-color: #f7ca00;
+.qv-quantity-select {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fafafa;
 }
 
-.footer-copyright {
-  background-color: #131a22;
-  text-align: center;
-  padding: 25px 0;
-  font-size: 12px;
-  color: #999;
-  border-top: 1px solid #3a4553;
+.qv-add-button {
+  width: auto;
+  padding: 10px 25px;
 }

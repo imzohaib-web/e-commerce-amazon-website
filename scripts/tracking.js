@@ -1,12 +1,7 @@
-import { renderPaymentSummary } from './checkout/paymentSummary.js';
-import { renderOrderSummary } from './checkout/orderSummary.js';
 import { updateCartBadge } from './shared/cartBadge.js';
 import { initSearchRedirect } from './shared/searchRedirect.js';
 import { initBackToTopFooter } from './shared/scrollToTop.js';
 
 initBackToTopFooter();
 initSearchRedirect();
-
-renderOrderSummary();
-renderPaymentSummary();
 updateCartBadge();
