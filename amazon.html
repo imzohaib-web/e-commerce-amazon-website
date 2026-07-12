@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Amazon project </title>
+    <title>SwiftCart - Modern Shopping Festival</title>
 
-    <!-- This code is needed for responsive design to work.
-      (Responsive design = make the website look good on
-      smaller screen sizes like a phone or a tablet). -->
+    <!-- This code is needed for responsive design to work. -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Load a font called Roboto from Google Fonts. -->
+    <!-- Load a font called Roboto and Outfit from Google Fonts. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Here are the CSS files for this page. -->
     <link rel="stylesheet" href="styles/shared/general.css">
@@ -21,23 +19,30 @@
   <body>
     <div class="amazon-header">
       <div class="amazon-header-left-section">
-        <a href="amazon.html" class="header-link">
-          <img class="amazon-logo"
-            src="images/amazon-logo-white.png">
-          <img class="amazon-mobile-logo"
-            src="images/amazon-mobile-logo-white.png">
+        <a href="amazon.html" class="header-logo-link">
+          <span class="logo-icon">🛍️</span>
+          <span class="logo-text">SwiftCart</span>
         </a>
       </div>
 
       <div class="amazon-header-middle-section">
+        <select class="nav-category-select js-nav-category-select" aria-label="Category select">
+          <option value="all">All</option>
+          <option value="clothing">Clothing</option>
+          <option value="electronics">Electronics</option>
+          <option value="kitchen">Kitchen</option>
+          <option value="sports">Sports</option>
+          <option value="home">Home</option>
+          <option value="accessories">Accessories</option>
+        </select>
         <div class="search-input-container">
-          <input class="search-bar js-search-bar" type="text" placeholder="Search">
+          <input class="search-bar js-search-bar" type="text" placeholder="Search products, keywords or category...">
           <button class="clear-search-button js-clear-search-button hidden" aria-label="Clear Search">&times;</button>
           <div class="search-dropdown js-search-dropdown hidden"></div>
         </div>
 
-        <button class="search-button js-search-button">
-          <img class="search-icon" src="images/icons/search-icon.png">
+        <button class="search-button js-search-button" aria-label="Submit Search">
+          <img class="search-icon" src="images/icons/search-icon.png" alt="Search">
         </button>
       </div>
 
@@ -48,35 +53,215 @@
         </a>
 
         <a class="cart-link header-link" href="checkout.html">
-          <img class="cart-icon" src="images/icons/cart-icon.png">
-          <div class="cart-quantity js-cart-quantity">0</div>
+          <div class="cart-icon-container">
+            <img class="cart-icon" src="images/icons/cart-icon.png" alt="Cart">
+            <div class="cart-quantity js-cart-quantity">0</div>
+          </div>
           <div class="cart-text">Cart</div>
         </a>
       </div>
     </div>
+
+    <!-- Secondary Sub-Navbar Navigation -->
+    <div class="sub-navbar">
+      <div class="sub-nav-links">
+        <a href="amazon.html" class="sub-nav-link active">Home</a>
+        <a href="#categories-section" class="sub-nav-link">Categories</a>
+        <a href="#products-section" class="sub-nav-link">Deals</a>
+        <a href="#products-section" class="sub-nav-link">New Arrivals</a>
+        <a href="#footer-section" class="sub-nav-link">Contact</a>
+      </div>
+      <div class="sub-nav-promo">
+        ⚡ Limited Time Deals: Get Up to 50% Off!
+      </div>
+    </div>
     
     <div class="main">
-      <div class="search-results-header js-search-results-header hidden"></div>
-
-      <div class="loading-container js-loading-container hidden">
-        <div class="loading-spinner"></div>
+      <!-- Hero Promotional Slide Banner Section -->
+      <div class="hero-section" id="deals-section">
+        <div class="hero-slides">
+          <div class="hero-slide" style="background-image: linear-gradient(to right, rgba(19, 25, 33, 0.85), rgba(19, 25, 33, 0.45)), url('images/hero-bg.png');">
+            <div class="hero-content">
+              <span class="hero-badge">MEGA SHOPPING FESTIVAL</span>
+              <h1>Summer Sale Spectacular</h1>
+              <p>Up to 60% off on apparel, home goods, kitchenware, and more. Upgrade your lifestyle today!</p>
+              <button class="hero-btn js-hero-shop-now">Shop Now</button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="no-products-container js-no-products-container hidden">
-        <div class="no-products-icon">&#x1F50D;</div>
-        <h2>No products match your search.</h2>
-        <p>Check the spelling or try another search term.</p>
-        <button class="clear-search-btn js-clear-search-btn">Clear Search</button>
+      <!-- Categories Section below Hero -->
+      <div class="categories-section" id="categories-section">
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="category-grid">
+          <div class="category-card js-category-card" data-category="clothing">
+            <span class="category-emoji">👕</span>
+            <h3>Fashion</h3>
+            <p>Apparel & Shoes</p>
+          </div>
+          <div class="category-card js-category-card" data-category="electronics">
+            <span class="category-emoji">💻</span>
+            <h3>Electronics</h3>
+            <p>Gadgets & Tech</p>
+          </div>
+          <div class="category-card js-category-card" data-category="home">
+            <span class="category-emoji">🏠</span>
+            <h3>Home</h3>
+            <p>Decor & Comfort</p>
+          </div>
+          <div class="category-card js-category-card" data-category="kitchen">
+            <span class="category-emoji">🍳</span>
+            <h3>Kitchen</h3>
+            <p>Appliances & Plates</p>
+          </div>
+          <div class="category-card js-category-card" data-category="sports">
+            <span class="category-emoji">🏀</span>
+            <h3>Sports</h3>
+            <p>Fitness & Gear</p>
+          </div>
+          <div class="category-card js-category-card" data-category="accessories">
+            <span class="category-emoji">👜</span>
+            <h3>Accessories</h3>
+            <p>Bags & Shades</p>
+          </div>
+        </div>
       </div>
 
-      <div class="products-grid js-products-grid">
-  
+      <!-- Products Grid & Filtering Section -->
+      <div class="products-section" id="products-section">
+        <h2 class="section-title js-products-section-title">Explore Our Products</h2>
+        
+        <div class="filter-sort-bar">
+          <div class="filter-group">
+            <label for="filter-category">Category</label>
+            <select class="filter-select js-filter-category" id="filter-category">
+              <option value="all">All Categories</option>
+              <option value="clothing">👕 Clothing</option>
+              <option value="electronics">💻 Electronics</option>
+              <option value="kitchen">🍳 Kitchen</option>
+              <option value="sports">🏀 Sports</option>
+              <option value="home">🏠 Home</option>
+              <option value="accessories">👜 Accessories</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="filter-price">Price</label>
+            <select class="filter-select js-filter-price" id="filter-price">
+              <option value="all">All Prices</option>
+              <option value="under-20">Under $20</option>
+              <option value="20-50">$20 - $50</option>
+              <option value="50-100">$50 - $100</option>
+              <option value="above-100">Above $100</option>
+            </select>
+          </div>
 
+          <div class="filter-group">
+            <label for="filter-sort">Sort By</label>
+            <select class="filter-select js-filter-sort" id="filter-sort">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating-desc">Highest Rated</option>
+              <option value="best-selling">Best Selling</option>
+              <option value="name-asc">A - Z</option>
+            </select>
+          </div>
+
+          <button class="clear-filters-btn js-clear-filters-btn hidden">Clear Filters</button>
+        </div>
+
+        <div class="search-results-header js-search-results-header hidden"></div>
+
+        <div class="loading-container js-loading-container hidden">
+          <div class="loading-spinner"></div>
+        </div>
+
+        <div class="no-products-container js-no-products-container hidden">
+          <div class="no-products-icon">&#x1F50D;</div>
+          <h2>No products match your search.</h2>
+          <p>Check the spelling, change filters or click below to reset.</p>
+          <button class="clear-search-btn js-clear-search-btn">Clear Search & Filters</button>
+        </div>
+
+        <div class="products-grid js-products-grid">
+          <!-- Filled dynamically via JS -->
+        </div>
       </div>
     </div>
   
-  
-    <script type = "module" src="scripts/amazon.js"></script>
-  
+    <!-- Quick View Modal Popup -->
+    <div class="quickview-modal js-quickview-modal hidden">
+      <div class="quickview-overlay js-quickview-overlay"></div>
+      <div class="quickview-content">
+        <button class="quickview-close js-quickview-close" aria-label="Close modal">&times;</button>
+        <div class="quickview-body js-quickview-body">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast alerts container -->
+    <div class="toast-container js-toast-container"></div>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-to-top-btn js-scroll-to-top hidden" aria-label="Scroll to top">&#8593;</button>
+
+    <!-- Professional E-Commerce Footer -->
+    <footer class="footer-section" id="footer-section">
+      <div class="back-to-top-footer js-back-to-top-footer">
+        Back to top
+      </div>
+      
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>About Us</h3>
+          <p>SwiftCart is a premium modern shopping destination, delivering high quality products right to your doorstep. Fast, secure, and hassle-free.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon" aria-label="Facebook">🔵</a>
+            <a href="#" class="social-icon" aria-label="YouTube">🔴</a>
+            <a href="#" class="social-icon" aria-label="Instagram">📸</a>
+            <a href="#" class="social-icon" aria-label="Twitter">🐦</a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Customer Service</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Track Orders</a></li>
+            <li><a href="#">Returns & Refunds</a></li>
+            <li><a href="#">Shipping Rates</a></li>
+            <li><a href="#">Contact Support</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Privacy & Legal</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Preferences</a></li>
+            <li><a href="#">Ad Choices</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Newsletter</h3>
+          <p>Subscribe to receive news, special deals, and updates from SwiftCart.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+            <input type="email" placeholder="Your email address" aria-label="Email Address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-copyright">
+        &copy; 2026 SwiftCart Inc. All rights reserved.
+      </div>
+    </footer>
+
+    <script type="module" src="scripts/amazon.js"></script>
   </body>
 </html>
