@@ -2,6 +2,8 @@ import { cart } from '../../data/cart.js';
 import { getProduct } from '../../data/products.js';
 import { getDeliveryOption } from '../../data/deliveryOptions.js';
 import { formatCurrency } from '../utils/money.js';
+import { addOrder } from '../../data/orders.js';
+import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 
 export function renderPaymentSummary() {
   let productPriceCents = 0;
@@ -72,9 +74,44 @@ export function renderPaymentSummary() {
         alert('Your cart is empty! Please add some items to your cart first.');
         return;
       }
+
+      // Read Full Name from input form
+      const nameInput = document.querySelector('.shipping-info-form input[placeholder="Full Name"]');
+      const shipToName = nameInput ? nameInput.value.trim() : 'Jane Doe';
+
+      // Generate a unique order ID
+      const orderId = typeof crypto !== 'undefined' && crypto.randomUUID 
+        ? crypto.randomUUID() 
+        : Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+
+      // Construct order items
+      const orderItems = cart.map((cartItem) => {
+        const deliveryOption = getDeliveryOption(cartItem.deliveryOptionId);
+        const today = dayjs();
+        const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
+
+        return {
+          productId: cartItem.productId,
+          quantity: cartItem.quantity,
+          deliveryOptionId: cartItem.deliveryOptionId,
+          estimatedDeliveryDate: deliveryDate.toISOString()
+        };
+      });
+
+      // Construct the order object
+      const newOrder = {
+        id: orderId,
+        orderTime: dayjs().toISOString(),
+        totalCents: totalCents,
+        shipTo: shipToName,
+        items: orderItems
+      };
+
+      // Add to storage
+      addOrder(newOrder);
       
       // Clear cart storage and in-memory array
-      localStorage.removeItem('cart');
+      localStorage.setItem('cart', JSON.stringify([]));
       cart.length = 0; 
       
       alert('Thank you for your order! Your purchase was successful and your order has been placed.');
