@@ -1,7 +1,7 @@
 import { STORAGE_KEYS } from './constants.js';
 import { setStringToStorage } from './storage.js';
 
-export function initSearchRedirect(destination = 'amazon.html') {
+export function initSearchRedirect(destination = 'index.html') {
   const searchInput = document.querySelector('.js-search-bar');
   const searchButton = document.querySelector('.js-search-button');
 

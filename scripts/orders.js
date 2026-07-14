@@ -25,7 +25,7 @@ function renderOrdersList() {
       <div class="empty-orders-container">
         <div class="empty-orders-icon">📦</div>
         <div class="empty-orders-message">You haven't placed any orders yet.</div>
-        <a href="amazon.html" class="btn-action btn-primary continue-shopping-btn">Continue Shopping</a>
+        <a href="index.html" class="btn-action btn-primary continue-shopping-btn">Continue Shopping</a>
       </div>
     `;
     return;
